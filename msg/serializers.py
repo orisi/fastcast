@@ -16,12 +16,12 @@ from msg.models import Msg
 class MsgSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Msg
-        fields = ( 'message_id','source','destination','channel','signature','body')
+        fields = ('source','destination','channel','signature','body')
 
 
 class MsgListSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Msg
-        fields = ( 'message_id','source','timestamp','destination','channel','signature','body')
+        fields = ( 'source','timestamp','destination','channel','signature','body')
 
 
