@@ -77,6 +77,17 @@ url = 'http://hub.orisi.org/last?format=json'
 r = requests.get(url)
 ```
 
+### Get body
+
+```
+import requests
+
+...
+
+url = 'http://hub.orisi.org/storage' + message.body
+r = requests.get(url)
+```
+
 
 ## Technical Notes
 
