@@ -13,3 +13,17 @@ curl -X GET http://hub.orisi.org/last/?format=json
 curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 ```
 
+
+
+```
+url = 'http://hub.orisi.org/'
+
+# Create file and open
+
+files = {'file': open('report.xls', 'rb')}
+r = requests.post(url, files=files)
+
+
+
+```
+
