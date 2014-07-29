@@ -6,4 +6,4 @@ curl -X POST -S -H 'Accept: application/json' -F "message_id=s12332432" /
 -F "destination=s12332432" /
 -F "channel=s12332432" /
 -F "signature=signature" /
--F "photo=@test.json;type=image/jpg" 127.0.0.1:8000/api/v1/
+-F "photo=@test.json;type=image/jpg" 127.0.0.1:8000/last?format=json
