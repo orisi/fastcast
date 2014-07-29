@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from msg.serializers import UserSerializer, GroupSerializer, MsgSerializer
+from msg.serializers import UserSerializer, GroupSerializer, MsgListSerializer
 from msg.models import Msg
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
@@ -34,6 +34,7 @@ from rest_framework import status, permissions, renderers
 from rest_framework.decorators import api_view
 
 from rest_framework import generics
+from datetime import datetime, timedelta
 
 class MsgList(generics.ListCreateAPIView):
     queryset = Msg.objects.all()
@@ -41,7 +42,17 @@ class MsgList(generics.ListCreateAPIView):
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
+    serializer_class = MsgListSerializer
+
+
+
+class MsgListLast(generics.ListCreateAPIView):
+    queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()])
     serializer_class = MsgSerializer
+    paginate_by = 10
+    paginate_by_param = 'page_size'
+    max_paginate_by = 100
+    serializer_class = MsgListSerializer
 
 
 # here you could easily disconnect Update/Destroy functionality
