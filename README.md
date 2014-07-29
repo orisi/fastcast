@@ -19,8 +19,6 @@ curl -X GET http://hub.orisi.org/last/?format=json
 curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 ```
 
-
-
 # Python
 
 ### Posting new message
@@ -28,7 +26,15 @@ curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 ```
 url = 'http://hub.orisi.org/'
 
-payload = {'key1': 'value1', 'key2': 'value2'}
+payload = {
+
+            "source": "1",
+            "destination": "1",
+            "channel": "1",
+            "signature": "1",
+
+
+}
 
 
 # Create file and open
