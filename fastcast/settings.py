@@ -85,3 +85,18 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = '/Users/kuba/Documents/messages'
 MEDIA_URL = "storage/"
+
+
+# IN CASE OF DDOS ATTEMPT
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '86400/day',
+        # equals 1 every second
+
+
+    }
+}

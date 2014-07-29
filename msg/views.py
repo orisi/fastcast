@@ -47,40 +47,21 @@ class MsgList(generics.ListCreateAPIView):
 
 
 class MsgListLast(generics.ListCreateAPIView):
-    queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()])
+    backtime = datetime.now()-timedelta(minutes=9)
+    now = datetime.now()
 
+    queryset = Msg.objects.filter(timestamp__range=[backtime,now])
     serializer_class = MsgSerializer
+
+    """
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
-
+    """
 
 # here you could easily disconnect Update/Destroy functionality
 class MsgDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Msg.objects.all()
     serializer_class = MsgSerializer
     
-    
-from rest_framework.decorators import link
-
-@api_view(['GET','POST'])
-class MsgViewSet(viewsets.ModelViewSet):
-    """
-    This viewset automatically provides `list`, `create`, `retrieve`,
-    `update` and `destroy` actions.
-
-    Additionally we also provide an extra `highlight` action.
-    """
-    queryset = Msg.objects.all()
-    serializer_class = MsgSerializer
-    #permission_classes = (permissions.IsAuthenticatedOrReadOnly,
-    #                      IsOwnerOrReadOnly,)
-
-    @link(renderer_classes=[renderers.StaticHTMLRenderer])
-    def highlight(self, request, *args, **kwargs):
-        msg = self.get_object()
-        return Response(msg.highlighted)
-
-    def pre_save(self, obj):
-        obj.owner = self.request.user
     
