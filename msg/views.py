@@ -37,7 +37,7 @@ from rest_framework import generics
 from datetime import datetime, timedelta
 
 class MsgList(generics.ListCreateAPIView):
-    queryset = Msg.objects.all()
+    queryset = Msg.objects.all().order_by('-timestamp')
     serializer_class = MsgSerializer
     paginate_by = 10
     paginate_by_param = 'page_size'
@@ -47,7 +47,7 @@ class MsgList(generics.ListCreateAPIView):
 
 
 class MsgListLast(generics.ListCreateAPIView):
-    queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()])
+    queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()]).order_by('-timestamp')
     serializer_class = MsgSerializer
     paginate_by = 10
     paginate_by_param = 'page_size'
