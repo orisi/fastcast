@@ -51,8 +51,12 @@ payload = {
 }
 
 
-### Create file and open
+data = {}
 
+### Create file and open
+import json
+with open('test.json', 'w') as outfile:
+  json.dump(data, outfile)
 
 files = {'file': open('test.json', 'rb')}
 r = requests.post(url, files=files, data=payload)
