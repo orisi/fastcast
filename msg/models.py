@@ -3,11 +3,9 @@ from django.db import models
 # Create your models here.
 class Msg( models.Model ):
     """
-    Model for storing `tasks`
+    Model for storing `messages`
     """
-    # Whether this task is completed
-    
-    # Task title
+   
     subject = models.CharField( max_length = 100 )
     origin = models.CharField( max_length = 100 )
     channel = models.CharField( max_length = 100 )
