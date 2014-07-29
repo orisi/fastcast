@@ -2,9 +2,10 @@
 
 Fast cast is a simple web REST server based on Django Rest Framework. It handles internal messaging services for Orisi nodes. It is robust and easy to distribute.
 
-You can explore API following those urls:
+You can explore API following e.g. those urls:
 * [Messages from last 10 minutes](http://hub.orisi.org/last)
 * [Last 10 messages](http://hub.orisi.org?page_size=10)
+
 
 
 # Implementations
@@ -54,9 +55,11 @@ payload = {
 data_x = { "Test" : "test" }
 
 ### Create file and open
-#import json
-#Bwith open('test.json', 'w') as outfile:
-#  json.dump(data_x, outfile)
+"""
+import json
+with open('test.json', 'w') as outfile:
+  json.dump(data_x, outfile)
+"""
 
 files = {'file': open('test.json', 'rb')}
 r = requests.post(url, files=files, data=payload)
