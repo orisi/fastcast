@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from msg.serializers import UserSerializer, GroupSerializer, MsgListSerializer
+from msg.serializers import UserSerializer, GroupSerializer
 from msg.models import Msg
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
