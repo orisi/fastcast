@@ -53,7 +53,6 @@ ROOT_URLCONF = 'fastcast.urls'
 
 WSGI_APPLICATION = 'fastcast.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
@@ -69,7 +68,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
