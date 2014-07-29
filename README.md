@@ -6,6 +6,8 @@ You can explore API following e.g. those urls:
 * [Messages from last 10 minutes](http://hub.orisi.org/last)
 * [Last 10 messages](http://hub.orisi.org?page_size=10)
 
+Default FASTCAST server is  [hub.orisi.org](http://hub.orisi.org).
+You can install your own using this repo if you like.
 
 
 # Implementations
