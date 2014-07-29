@@ -21,5 +21,5 @@ class Msg( models.Model ):
     destination = models.CharField( max_length = 100 )
     channel = models.CharField( max_length = 100 )
     signature = models.CharField( max_length = 100 )
-    body = models.FileField(upload_to=".", validators=[validate_file])
+    body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file])
 
