@@ -47,7 +47,7 @@ class MsgList(generics.ListCreateAPIView):
 
 
 class MsgListLast(generics.ListCreateAPIView):
-    backtime = datetime.now()-timedelta(minutes=9)
+    backtime = datetime.now()-timedelta(minutes=29)
     now = datetime.now()
 
     queryset = Msg.objects.filter(timestamp__range=[backtime,now])
