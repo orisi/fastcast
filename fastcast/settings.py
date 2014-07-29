@@ -84,4 +84,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = '/Users/kuba/Documents/messages'
-MEDIA_URL = "packages/"
+MEDIA_URL = "storage/"

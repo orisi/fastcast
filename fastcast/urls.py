@@ -18,7 +18,7 @@ urlpatterns = patterns('',
 
         # unhash this to get access to json user/group api
         #url(r'^meta/', include(router.urls)),
-        url(r'^packages/(?P<path>.*)$', 'django.views.static.serve', {
+        url(r'^storage/(?P<path>.*)$', 'django.views.static.serve', {
             'document_root': settings.MEDIA_ROOT,
         }),
 
