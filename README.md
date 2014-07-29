@@ -1,10 +1,12 @@
 echo test > test.json
 
-curl -X POST -H "Content-Type:multipart/form-data" -F "body=@test.json;type=image/jpeg" http://hub.orisi.org -F {
+curl -X POST -S -H 'Accept: application/json' -F "message_id=s12332432" /
+-F "message_id=s12332432" /
+-F "source=s12332432" /
+-F "destination=s12332432" /
+-F "channel=s12332432" /
+-F "channel=signature" /
 
- "message_id": "", 
- "source": "", 
- "destination": "", 
- "channel": "", 
- "signature": "", 
-    }
+
+
+-F "photo=@/home/michel/test.jpg;type=image/jpg" 127.0.0.1:8000/api/v1/
