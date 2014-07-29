@@ -42,13 +42,14 @@ class MsgList(generics.ListCreateAPIView):
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
-    serializer_class = MsgListSerializer
+
 
 
 
 class MsgListLast(generics.ListCreateAPIView):
     queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()])
-    serializer_class = MsgListSerializer
+
+    serializer_class = MsgSerializer
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
