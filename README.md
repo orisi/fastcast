@@ -23,6 +23,8 @@ curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 
 ### Posting new message
 
+import requests
+
 ```
 url = 'http://hub.orisi.org/'
 
