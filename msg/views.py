@@ -48,12 +48,11 @@ class MsgList(generics.ListCreateAPIView):
 
 class MsgListLast(generics.ListCreateAPIView):
     queryset = Msg.objects.filter(timestamp__range=[datetime.now()-timedelta(minutes=10),datetime.now()])
-    serializer_class = MsgSerializer
+    serializer_class = MsgListSerializer
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
-    serializer_class = MsgListSerializer
-
+   
 
 # here you could easily disconnect Update/Destroy functionality
 class MsgDetail(generics.RetrieveUpdateDestroyAPIView):
