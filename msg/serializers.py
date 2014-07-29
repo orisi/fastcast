@@ -18,10 +18,3 @@ class MsgSerializer( serializers.ModelSerializer ):
         model = Msg
         fields = ('message_id','timestamp','source','destination','channel','signature','body')
 
-
-class MsgListSerializer( serializers.ModelSerializer ):
-    class Meta:
-        model = Msg
-        fields = ('message_id','timestamp','source','destination','channel','signature','body')
-
-
