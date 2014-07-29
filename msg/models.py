@@ -6,7 +6,7 @@ import sys
 import base64 
  
  
-def fetch_code(custom_string="CODE_'):
+def fetch_code(custom_string="CODE_"):
     """
     takes an optional argument, a string to be put at the beginning of a code,
     so the code will look like that:
@@ -45,12 +45,17 @@ class Msg( models.Model ):
         if filesize > kilobyte_limit*1024:
             raise ValidationError("Max file size is %skB" % str(kilobyte_limit))
 
-    message_id = models.CharField( max_length = 100 )
+    message_id = models.CharField( max_length = 255)
     timestamp = models.DateTimeField(auto_now_add=True)
-    source = models.CharField( max_length = 100 )
-    destination = models.CharField( max_length = 100 )
-    channel = models.CharField( max_length = 100 )
-    signature = models.CharField( max_length = 100 )
+    source = models.CharField( max_length = 255 )
+    destination = models.CharField( max_length = 255 )
+    channel = models.CharField( max_length = 255 )
+    signature = models.CharField( max_length = 255 )
     body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file])
 
 
+    def save(self):
+        if not self.id:
+            self.message_id = fetch_code(custom_string="0_")
+
+        super(Msg, self).save()
