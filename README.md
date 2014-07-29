@@ -1,4 +1,15 @@
-# Bash
+# FASTCAST
+
+Fast cast is a simple web REST server based on Django Rest Framework. It handles internal messaging services for Orisi nodes. It is robust and easy to distribute.
+
+You can explore API following those urls:
+* [Messages from last 10 minutes](http://hub.orisi.org/last)
+* [Last 10 messages](http://hub.orisi.org?page_size=10)
+
+
+# Implementations
+
+## Bash
 
 ### Posting new message
 ```
@@ -19,11 +30,14 @@ curl -X GET http://hub.orisi.org/last/?format=json
 curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 ```
 
-# Python
+## Python
 
 ### Posting new message
 
+
+
 ```
+import requests
 url = 'http://hub.orisi.org/'
 
 payload = {
@@ -37,8 +51,12 @@ payload = {
 }
 
 
-# Create file and open
+data = {}
 
+### Create file and open
+import json
+with open('test.json', 'w') as outfile:
+  json.dump(data, outfile)
 
 files = {'file': open('test.json', 'rb')}
 r = requests.post(url, files=files, data=payload)
@@ -47,6 +65,21 @@ r = requests.post(url, files=files, data=payload)
 
 ```
 
+### Get messages from last 10 minutes
+
+```
+import requests
+url = 'http://hub.orisi.org/last?format=json'
+r = requests.get(url)
+```
+
+
+## Technical Notes
+
+Messages have headers
+
+And body. Up to 65 kbytes json file.
+Files are sharded on day-basis.
 
 
 
