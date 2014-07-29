@@ -43,7 +43,7 @@ class Msg( models.Model ):
     destination = models.CharField( max_length = 255 )
     channel = models.CharField( max_length = 255 )
     signature = models.CharField( max_length = 255 )
-    body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file])
+    body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
 
     def save(self, *args, **kwargs):
         self.message_id = fetch_code(custom_string="0_")
