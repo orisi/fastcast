@@ -37,9 +37,10 @@ curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 
 ### Posting new message
 
-import requests
+
 
 ```
+import requests
 url = 'http://hub.orisi.org/'
 
 payload = {
@@ -66,6 +67,7 @@ r = requests.post(url, files=files, data=payload)
 ### Get messages from last 10 minutes
 
 ```
+import requests
 url = 'http://hub.orisi.org/last?format=json'
 r = requests.get(url)
 ```
