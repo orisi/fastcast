@@ -53,7 +53,7 @@ payload = {
 }
 
 
-# Create file and open
+### Create file and open
 
 
 files = {'file': open('test.json', 'rb')}
@@ -61,6 +61,13 @@ r = requests.post(url, files=files, data=payload)
 
 
 
+```
+
+### Get messages from last 10 minutes
+
+```
+url = 'http://hub.orisi.org/last?format=json'
+r = requests.get(url)
 ```
 
 
