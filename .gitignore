@@ -1,4 +1,6 @@
 *~
 db.sqlite3
+*.pyc
+
 .idea/
 *.pyc
