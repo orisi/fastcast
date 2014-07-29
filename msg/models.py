@@ -45,7 +45,7 @@ class Msg( models.Model ):
         if filesize > kilobyte_limit*1024:
             raise ValidationError("Max file size is %skB" % str(kilobyte_limit))
 
-    message_id = models.CharField( max_length = 255)
+    message_id = models.CharField( max_length = 255, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     source = models.CharField( max_length = 255 )
     destination = models.CharField( max_length = 255 )

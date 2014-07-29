@@ -52,7 +52,7 @@ class MsgListLast(generics.ListCreateAPIView):
     paginate_by = 10
     paginate_by_param = 'page_size'
     max_paginate_by = 100
-   
+
 
 # here you could easily disconnect Update/Destroy functionality
 class MsgDetail(generics.RetrieveUpdateDestroyAPIView):
