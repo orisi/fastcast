@@ -38,10 +38,17 @@ from rest_framework import generics
 class MsgList(generics.ListCreateAPIView):
     queryset = Msg.objects.all()
     serializer_class = MsgSerializer
+    paginate_by = 10
+    paginate_by_param = 'page_size'
+    max_paginate_by = 100
+    serializer_class = MsgSerializer
 
+
+# here you could easily disconnect Update/Destroy functionality
 class MsgDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Msg.objects.all()
     serializer_class = MsgSerializer
+    
     
 from rest_framework.decorators import link
 
