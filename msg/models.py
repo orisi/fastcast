@@ -8,14 +8,6 @@ import base64
  
 def fetch_code(custom_string="CODE_"):
     """
-    takes an optional argument, a string to be put at the beginning of a code,
-    so the code will look like that:
- 
-    CODE_8mANDJ
-    KEY_9coOeC
- 
-    default is CODE_
- 
     usage:
     fetch_code()   
     fetch_code(custom_string="KEY_")
