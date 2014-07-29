@@ -38,7 +38,7 @@ curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
 
 ```
 import requests
-url = 'http://hub.orisi.org/'
+url = 'http://54.77.58.8/'
 
 payload = {
 
@@ -51,18 +51,17 @@ payload = {
 }
 
 
-data = {}
+data_x = { "Test" : "test" }
 
 ### Create file and open
-import json
-with open('test.json', 'w') as outfile:
-  json.dump(data, outfile)
+#import json
+#Bwith open('test.json', 'w') as outfile:
+#  json.dump(data_x, outfile)
 
 files = {'file': open('test.json', 'rb')}
 r = requests.post(url, files=files, data=payload)
 
-
-
+print r.text
 ```
 
 ### Get messages from last 10 minutes
