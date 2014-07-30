@@ -2,7 +2,7 @@
 
 FastCast is a simple broadcast messaging protocol we had to develop for Orisi. Right now it supports a single-server hub, but it should be possible to [extend it into a distributed architecture](https://github.com/orisi/fastcast/issues/1), and to include a [proof-of-work](https://en.bitcoin.it/wiki/Proof_of_work) or [proof-of-burn](https://en.bitcoin.it/wiki/Proof_of_burn) spam prevention.
 
-FastCast is built as a simple web REST server based on Django Rest Framework.
+FastCast is built as a simple web REST server based on Django Rest Framework. Here you can read [how it compares to BitMessage](https://github.com/orisi/fastcast/wiki/How-FastCast-compares-to-BitMessage).
 
 You can explore API following e.g. those urls:
 * [Messages from the last 10 minutes](http://hub.orisi.org/last)
