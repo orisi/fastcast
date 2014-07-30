@@ -5,7 +5,7 @@ FastCast is a simple broadcast messaging protocol we had to develop for Orisi. R
 FastCast is built as a simple web REST server based on Django Rest Framework.
 
 You can explore API following e.g. those urls:
-* [Messages from last 10 minutes](http://hub.orisi.org/last)
+* [Messages from the last 10 minutes](http://hub.orisi.org/last)
 * [Last 10 messages](http://hub.orisi.org?page_size=10)
 
 The default FASTCAST server is  [hub.orisi.org](http://hub.orisi.org).
