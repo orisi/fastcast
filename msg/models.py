@@ -4,7 +4,9 @@ from django.core.exceptions import ValidationError
 import uuid # from http://zesty.ca/python/uuid.html
 import sys
 import base64 
- 
+
+
+
  
 def fetch_code(custom_string="CODE_"):
     """
@@ -43,7 +45,9 @@ class Msg( models.Model ):
     destination = models.CharField( max_length = 255 )
     channel = models.CharField( max_length = 255 )
     signature = models.CharField( max_length = 255 )
-    body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
+    #body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
+
+    body = models.TextField(blank=True)
 
     def save(self, *args, **kwargs):
         self.message_id = fetch_code(custom_string="0_")

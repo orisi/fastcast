@@ -49,7 +49,7 @@ class MsgList(generics.ListCreateAPIView):
 class MsgListLast(generics.ListCreateAPIView):
     backtime = datetime.now()-timedelta(minutes=10)
     now = datetime.now()+timedelta(minutes=2)
-    
+
     queryset = Msg.objects.filter(timestamp__range=[backtime,now])
     serializer_class = MsgSerializer
 
