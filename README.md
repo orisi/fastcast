@@ -19,7 +19,7 @@ You can install your own using this repo if you like.
 ```
 echo test > test.json
 
-curl -X POST -S -H 'Accept: application/json' /  -F "source=s12332432" / -F "destination=s12332432" -F "channel=s12332432" -F "signature=signature" -F "body=@test.json;type=image/jpg" 127.0.0.1:8000/last/
+curl -X POST -S -H 'Accept: application/json' /  -F "source=s12332432" / -F "destination=s12332432" -F "channel=s12332432" -F "signature=signature" -F "body" 127.0.0.1:8000/last/
 ```
 
 ### Getting messages from last 10 minutes
@@ -28,11 +28,7 @@ curl -X POST -S -H 'Accept: application/json' /  -F "source=s12332432" / -F "des
 curl -X GET http://hub.orisi.org/last/?format=json
 ```
 
-### Getting message body
 
-```
-curl -X GET http://hub.orisi.org/storage/messages/2014/07/29/test_3.json
-```
 
 ## Python
 
@@ -55,17 +51,8 @@ payload = {
 }
 
 
-data_x = { "Test" : "test" }
 
-### Create file and open
-"""
-import json
-with open('test.json', 'w') as outfile:
-  json.dump(data_x, outfile)
-"""
-
-files = {'file': open('test.json', 'rb')}
-r = requests.post(url, files=files, data=payload)
+r = requests.post(url, data=payload)
 
 print r.text
 ```
@@ -90,12 +77,8 @@ r = requests.get(url)
 ```
 
 
-## Technical Notes
 
-Messages have headers
 
-And body. Up to 65 kbytes json file.
-Files are sharded on a daily basis.
 
 
 
