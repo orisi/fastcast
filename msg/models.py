@@ -42,7 +42,6 @@ class Msg( models.Model ):
     message_id = models.CharField( max_length = 255, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     source = models.CharField( max_length = 255 )
-    destination = models.CharField( max_length = 255 )
     channel = models.CharField( max_length = 255 )
     signature = models.CharField( max_length = 255 )
     #body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
