@@ -39,7 +39,7 @@ class Msg( models.Model ):
         if filesize > kilobyte_limit*1024:
             raise ValidationError("Max file size is %skB" % str(kilobyte_limit))
 
-    message_id = models.CharField( max_length = 255, blank=True)
+    frame_id = models.CharField( max_length = 255, blank=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     source = models.CharField( max_length = 255 )
     channel = models.CharField( max_length = 255 )
@@ -49,6 +49,6 @@ class Msg( models.Model ):
     body = models.TextField(blank=True)
 
     def save(self, *args, **kwargs):
-        self.message_id = fetch_code(custom_string="0_")
+        self.frame_id = fetch_code(custom_string="0_")
         super(Msg, self).save(*args, **kwargs)
 
