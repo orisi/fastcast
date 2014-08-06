@@ -16,5 +16,5 @@ from msg.models import Msg
 class MsgSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Msg
-        fields = ('message_id','timestamp','source','channel','signature','body')
+        fields = ('frame_id','timestamp','source','channel','signature','body')
 
