@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 import uuid # from http://zesty.ca/python/uuid.html
 import sys
 import base64 
-
+import datetime
 
 def to_native(value):
     """ Return epoch time for a datetime object or ``None``"""
@@ -60,6 +60,6 @@ class Msg( models.Model ):
 
     def save(self, *args, **kwargs):
         self.frame_id = fetch_code(custom_string="0_")
-        self.epoch = to_native(self.timestamp)
+        self.epoch = to_native(datetime.datetime.now())
         super(Msg, self).save(*args, **kwargs)
 
