@@ -6,7 +6,16 @@ import sys
 import base64 
 
 
+def to_native(value):
+    """ Return epoch time for a datetime object or ``None``"""
+    import time
+    try:
+       return int(time.mktime(value.timetuple()))
+    except (AttributeError, TypeError):
+       return None
 
+
+        
  
 def fetch_code(custom_string="CODE_"):
     """
@@ -47,8 +56,10 @@ class Msg( models.Model ):
     #body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
 
     body = models.TextField(blank=True)
+    epoch = models.IntegerField()
 
     def save(self, *args, **kwargs):
         self.frame_id = fetch_code(custom_string="0_")
+        self.epoch = to_native(self.timestamp)
         super(Msg, self).save(*args, **kwargs)
 
