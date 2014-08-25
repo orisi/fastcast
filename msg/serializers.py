@@ -32,5 +32,5 @@ class MsgSerializer( serializers.ModelSerializer ):
     class Meta:
         model = Msg
         
-        fields = ('frame_id','timestamp','source','channel','signature','body','epoch')
+        fields = ('frame_id','timestamp','source','channel','signature','body')
 
