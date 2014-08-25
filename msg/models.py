@@ -56,7 +56,7 @@ class Msg( models.Model ):
     #body = models.FileField(upload_to="messages/%Y/%m/%d/", validators=[validate_file],blank=True)
 
     body = models.TextField(blank=True)
-    epoch = models.CharField(max_length=250, blank=True)
+    epoch = models.CharField(max_length=250, blank=True, null=True)
 
     def save(self, *args, **kwargs):
         self.frame_id = fetch_code(custom_string="0_")
