@@ -20,6 +20,6 @@ class MsgSerializer( serializers.ModelSerializer ):
         
     class Meta:
         model = Msg
-        fields = ('frame_id','timestamp','source','channel','signature','body')
+        fields = ('frame_id','timestamp','source','channel','signature','body','epoch')
         read_only_fields = ('epoch',)
  
