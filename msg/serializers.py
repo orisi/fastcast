@@ -28,9 +28,9 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 from msg.models import Msg
 
 class MsgSerializer( serializers.ModelSerializer ):
-    epoch = UnixEpochDateField(source='timestamp')
+    
     class Meta:
         model = Msg
-        
+        epoch = UnixEpochDateField(source='timestamp')
         fields = ('frame_id','timestamp','source','channel','signature','body')
         read_only_fields = ('epoch',)
