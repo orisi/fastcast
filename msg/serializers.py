@@ -28,7 +28,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 from msg.models import Msg
 
 class MsgSerializer( serializers.ModelSerializer ):
-    epoch = = UnixEpochDateField(source='timestamp')
+    epoch = UnixEpochDateField(source='timestamp')
     class Meta:
         model = Msg
         
