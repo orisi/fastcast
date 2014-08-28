@@ -2,8 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 
 import uuid # from http://zesty.ca/python/uuid.html
-import sys
-import base64 
+import base64
 import datetime
 
 def to_native(value):
@@ -15,21 +14,21 @@ def to_native(value):
        return None
 
 
-        
- 
+
+
 def fetch_code(custom_string="CODE_"):
     """
     usage:
-    fetch_code()   
+    fetch_code()
     fetch_code(custom_string="KEY_")
-  
+
     """
     b64uid = '00000000'
-    
-   
+
+
     uid = uuid.uuid4()
     b64uid = base64.b64encode(uid.bytes,'-_')
-    
+
     code = b64uid[0:6]
     return custom_string+code
 
@@ -60,6 +59,6 @@ class Msg( models.Model ):
 
     def save(self, *args, **kwargs):
         self.frame_id = fetch_code(custom_string="0_")
-        self.epoch = to_native(datetime.datetime.now())
+        self.epoch = to_native(datetime.datetime.utcnow())
         super(Msg, self).save(*args, **kwargs)
 
