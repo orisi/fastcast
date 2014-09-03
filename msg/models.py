@@ -32,6 +32,12 @@ def fetch_code(custom_string="CODE_"):
     code = b64uid[0:6]
     return custom_string+code
 
+class Ping(models.Model):
+    oracle = models.CharField( max_length = 255, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+
+
 # Create your models here.
 class Msg( models.Model ):
     """
