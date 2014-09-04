@@ -29,8 +29,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         model = Group
         fields = ('url', 'name')
 
-from msg.models import Msg, Ping
-from datetime import datetime
+from msg.models import Msg
 
 class MsgSerializer( serializers.ModelSerializer ):
     class Meta:
@@ -46,7 +45,6 @@ class MsgSerializer( serializers.ModelSerializer ):
 
       try:
         verified = verify(body, attrs['signature'], attrs['source'])
-        Ping.objects.create(attrs['source'],datetime.utcnow())
       except binascii.Error:
         verified = False
 
