@@ -93,7 +93,7 @@ REST_FRAMEWORK = {
 
     ),
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '86400/day',
+        'anon': '186400/day',
         # equals 1 every second
 
 
