@@ -1,3 +1,4 @@
+python-dev
 django
 djangorestframework
 pycrypto
